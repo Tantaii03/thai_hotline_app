@@ -1,0 +1,33 @@
+name: thai_hotline_app
+description: Thai Hotline Application for Emergency and Service Numbers
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.2.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # ไอคอนสำหรับ iOS
+  cupertino_icons: ^1.0.8
+
+  # ใช้สำหรับกดโทรออกจากแอป (จำเป็นสำหรับโปรเจคนี้)
+  url_launcher: ^6.3.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  # ตรวจโค้ดตามมาตรฐาน Dart
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+
+  # รูปภาพในโปรเจค
+  assets:
+    - assets/images/
+    - assets/icon/
