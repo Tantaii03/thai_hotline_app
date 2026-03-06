@@ -1,33 +1,56 @@
 name: thai_hotline_app
-description: Thai Hotline Application for Emergency and Service Numbers
-publish_to: "none"
-
+description: "แอปพลิเคชันรวมเบอร์สายด่วนประเทศไทย สำหรับการเดินทาง อุบัติเหตุ ธนาคาร และสาธารณูปโภค"
+publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: ">=3.2.0 <4.0.0"
+  sdk: '>=3.2.0 <4.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
 
-  # ไอคอนสำหรับ iOS
-  cupertino_icons: ^1.0.8
-
-  # ใช้สำหรับกดโทรออกจากแอป (จำเป็นสำหรับโปรเจคนี้)
+  # --- Packages ที่ต้องใช้ในโปรเจกต์ ---
+  # สำหรับใช้ฟอนต์ Kanit และฟอนต์อื่นๆ จาก Google
+  google_fonts: ^8.0.2
+  font_awesome_flutter: ^10.12.0
+  
+  # สำหรับฟังก์ชันกดที่เบอร์แล้วเด้งไปหน้าโทรออก
   url_launcher: ^6.3.2
+  
+  # สำหรับทำหน้า Introduction (Onboarding) ก่อนเข้าแอป
+  introduction_screen: ^4.0.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
-  # ตรวจโค้ดตามมาตรฐาน Dart
   flutter_lints: ^6.0.0
+  
+  # --- Package สำหรับสร้างไอคอนแอปอัตโนมัติ ---
+  flutter_launcher_icons: ^0.14.4
+  icons_launcher: ^3.0.3
+
+# การตั้งค่าสำหรับสร้าง App Icon (ไอคอนที่จะโชว์บนหน้าจอมือถือ)
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/icon/iconapp.png"
+  # สีพื้นหลังไอคอนสำหรับ Android (เลือกใช้ Midnight Blue ให้คุมโทน)
+  adaptive_icon_background: "#1A237E"
+  adaptive_icon_foreground: "assets/icon/iconapp.png"
 
 flutter:
   uses-material-design: true
 
-  # รูปภาพในโปรเจค
+  # --- การลงทะเบียนไฟล์รูปภาพ (Assets) ---
   assets:
     - assets/images/
     - assets/icon/
+    - assets/images/menu1icon.png
+    - assets/images/menu2icon.png
+    - assets/images/menu3icon.png
+    - assets/images/menu4icon.png
+    - assets/images/subA_pic.png
+    - assets/images/subB_pic.png
+    - assets/images/subC_pic.png
+    - assets/images/subD_pic.png
