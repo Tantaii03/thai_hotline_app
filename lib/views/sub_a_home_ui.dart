@@ -12,6 +12,7 @@ class SubAHomeUI extends StatelessWidget {
       hotlineList: HotlineData.travelHotlines,
       themeColor: const Color(0xFF1A237E),
       bannerImage: "assets/images/subA_pic.png",
+      onInfoPressed: () => Navigator.pushNamed(context, '/about'),
     );
   }
 }

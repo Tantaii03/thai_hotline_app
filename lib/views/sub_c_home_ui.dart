@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../data/hotline_data.dart';
 import 'sub_template_ui.dart';
+import '../data/hotline_data.dart';
 
 class SubCHomeUI extends StatelessWidget {
   const SubCHomeUI({super.key});
@@ -9,9 +9,13 @@ class SubCHomeUI extends StatelessWidget {
   Widget build(BuildContext context) {
     return SubHomeUI(
       categoryTitle: "ธนาคาร",
-      hotlineList: HotlineData.bankHotlines,
-      themeColor: const Color(0xFF2E7D32),
+      hotlineList: HotlineData.bankHotlines, // ดึงข้อมูลจากหมวดธนาคาร
+      themeColor: const Color(0xFF00897B), // ตัวอย่างสีเขียวเข้มแบบธนาคาร
       bannerImage: "assets/images/subC_pic.png",
+      // ฟังก์ชันสำหรับกดปุ่ม Info มุมขวาบน
+      onInfoPressed: () {
+        Navigator.pushNamed(context, '/about');
+      },
     );
   }
 }
