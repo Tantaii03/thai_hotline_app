@@ -217,6 +217,11 @@ class HotlineData {
         imagePath: "assets/images/1242.png",
         themeColor: const Color(0xFFFF8F00)),
     Hotline(
+        name: "Dtac",
+        number: "1678",
+        imagePath: "assets/images/1678.png",
+        themeColor: const Color(0xFFFF8F00)),
+    Hotline(
         name: "AIS",
         number: "1175",
         imagePath: "assets/images/1175.png",

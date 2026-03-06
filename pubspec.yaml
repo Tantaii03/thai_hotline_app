@@ -10,32 +10,24 @@ dependencies:
   flutter:
     sdk: flutter
 
-  # --- Packages ที่ต้องใช้ในโปรเจกต์ ---
-  # สำหรับใช้ฟอนต์ Kanit และฟอนต์อื่นๆ จาก Google
+  # --- Packages หลัก ---
   google_fonts: ^8.0.2
   font_awesome_flutter: ^10.12.0
-  
-  # สำหรับฟังก์ชันกดที่เบอร์แล้วเด้งไปหน้าโทรออก
   url_launcher: ^6.3.2
-  
-  # สำหรับทำหน้า Introduction (Onboarding) ก่อนเข้าแอป
   introduction_screen: ^4.0.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^6.0.0
-  
-  # --- Package สำหรับสร้างไอคอนแอปอัตโนมัติ ---
+  flutter_lints: ^3.0.0
+  # ใช้ตัวเดียวเพื่อป้องกันความสับสน
   flutter_launcher_icons: ^0.14.4
-  icons_launcher: ^3.0.3
 
-# การตั้งค่าสำหรับสร้าง App Icon (ไอคอนที่จะโชว์บนหน้าจอมือถือ)
+# การตั้งค่าสำหรับสร้าง App Icon
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
   image_path: "assets/icon/iconapp.png"
-  # สีพื้นหลังไอคอนสำหรับ Android (เลือกใช้ Midnight Blue ให้คุมโทน)
   adaptive_icon_background: "#1A237E"
   adaptive_icon_foreground: "assets/icon/iconapp.png"
 
