@@ -8,7 +8,7 @@ class SubHomeUI extends StatelessWidget {
   final List<Hotline> hotlineList;
   final Color themeColor;
   final String bannerImage;
-  final VoidCallback? onInfoPressed; // เพิ่มเพื่อรับคำสั่งคลิกไปหน้า About
+  final VoidCallback? onInfoPressed;
 
   const SubHomeUI({
     super.key,
@@ -45,7 +45,7 @@ class SubHomeUI extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            onPressed: onInfoPressed, // ปุ่ม Info มุมขวาบน
+            onPressed: onInfoPressed,
             icon: Icon(Icons.info_outline, color: Colors.white.withAlpha(150)),
           ),
         ],
@@ -55,6 +55,7 @@ class SubHomeUI extends StatelessWidget {
         child: Column(
           children: [
             const SizedBox(height: 10),
+            // หัวข้อหมวดหมู่พร้อมเงาเรืองแสงตามธีม
             Text(
               categoryTitle,
               style: GoogleFonts.kanit(
@@ -62,12 +63,12 @@ class SubHomeUI extends StatelessWidget {
                 fontSize: 32,
                 fontWeight: FontWeight.bold,
                 shadows: [
-                  Shadow(color: themeColor.withAlpha(200), blurRadius: 20)
+                  Shadow(color: themeColor.withAlpha(200), blurRadius: 25)
                 ],
               ),
             ),
             const SizedBox(height: 25),
-            // Banner
+            // Banner ด้านบน
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 20),
               height: 180,
@@ -75,17 +76,20 @@ class SubHomeUI extends StatelessWidget {
                 borderRadius: BorderRadius.circular(25),
                 boxShadow: [
                   BoxShadow(
-                      color: themeColor.withAlpha(80),
-                      blurRadius: 25,
-                      spreadRadius: -5,
-                      offset: const Offset(0, 10)),
+                    color: themeColor.withAlpha(80),
+                    blurRadius: 25,
+                    spreadRadius: -5,
+                    offset: const Offset(0, 10),
+                  ),
                 ],
                 image: DecorationImage(
-                    image: AssetImage(bannerImage), fit: BoxFit.cover),
+                  image: AssetImage(bannerImage),
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
             const SizedBox(height: 30),
-            // รายการเบอร์โทร
+            // รายการสายด่วน
             ListView.builder(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
@@ -94,7 +98,7 @@ class SubHomeUI extends StatelessWidget {
                 final item = hotlineList[index];
                 return Container(
                   margin:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                   decoration: BoxDecoration(
                     color: const Color(0xFF1E293B),
                     borderRadius: BorderRadius.circular(22),
@@ -102,20 +106,41 @@ class SubHomeUI extends StatelessWidget {
                   ),
                   child: ListTile(
                     contentPadding: const EdgeInsets.symmetric(
-                        horizontal: 16, vertical: 12),
+                        horizontal: 16, vertical: 10),
                     leading: _buildLogo(item, themeColor),
-                    title: Text(item.name,
-                        style: GoogleFonts.kanit(
-                            color: Colors.white, fontSize: 16)),
-                    subtitle: Text(item.number,
-                        style: GoogleFonts.kanit(
-                            color: themeColor,
-                            fontSize: 26,
-                            fontWeight: FontWeight.bold)),
-                    trailing: IconButton(
-                      icon:
-                          const Icon(Icons.call, color: Colors.white, size: 26),
-                      onPressed: () => _makePhoneCall(item.number),
+                    title: Text(
+                      item.name,
+                      style:
+                          GoogleFonts.kanit(color: Colors.white, fontSize: 16),
+                    ),
+                    subtitle: Text(
+                      item.number,
+                      style: GoogleFonts.kanit(
+                        color: themeColor,
+                        fontSize: 26,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    // ✨ ปุ่มโทรแบบใหม่ (สวยสมบูรณ์แบบ)
+                    trailing: Container(
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        boxShadow: [
+                          BoxShadow(
+                            color: themeColor.withAlpha(100),
+                            blurRadius: 15,
+                            spreadRadius: -2,
+                          ),
+                        ],
+                      ),
+                      child: CircleAvatar(
+                        radius: 25,
+                        backgroundColor: themeColor.withAlpha(40),
+                        child: IconButton(
+                          icon: Icon(Icons.call, color: themeColor, size: 26),
+                          onPressed: () => _makePhoneCall(item.number),
+                        ),
+                      ),
                     ),
                   ),
                 );
@@ -128,6 +153,7 @@ class SubHomeUI extends StatelessWidget {
     );
   }
 
+  // Widget สร้างโลโก้พร้อม Effect เรืองแสง
   Widget _buildLogo(Hotline item, Color themeColor) {
     return SizedBox(
       width: 60,
@@ -136,14 +162,20 @@ class SubHomeUI extends StatelessWidget {
         alignment: Alignment.center,
         children: [
           Container(
-              decoration: BoxDecoration(shape: BoxShape.circle, boxShadow: [
-            BoxShadow(color: themeColor.withAlpha(150), blurRadius: 20)
-          ])),
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              boxShadow: [
+                BoxShadow(color: themeColor.withAlpha(150), blurRadius: 20)
+              ],
+            ),
+          ),
           CircleAvatar(
-              backgroundColor: Colors.white,
-              child: Padding(
-                  padding: const EdgeInsets.all(4),
-                  child: Image.asset(item.imagePath, fit: BoxFit.contain))),
+            backgroundColor: Colors.white,
+            child: Padding(
+              padding: const EdgeInsets.all(6),
+              child: Image.asset(item.imagePath, fit: BoxFit.contain),
+            ),
+          ),
         ],
       ),
     );
