@@ -89,7 +89,7 @@ class SubHomeUI extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 30),
-            // รายการสายด่วน
+// รายการสายด่วน
             ListView.builder(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
@@ -97,16 +97,18 @@ class SubHomeUI extends StatelessWidget {
               itemBuilder: (context, index) {
                 final item = hotlineList[index];
                 return Container(
+                  // ปรับ vertical จาก 10 เป็น 6 เพื่อลดระยะห่างระหว่างรายการ
                   margin:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 6),
                   decoration: BoxDecoration(
                     color: const Color(0xFF1E293B),
                     borderRadius: BorderRadius.circular(22),
                     border: Border.all(color: Colors.white.withAlpha(20)),
                   ),
                   child: ListTile(
-                    contentPadding: const EdgeInsets.symmetric(
-                        horizontal: 16, vertical: 10),
+                    // ปรับ vertical padding ภายในเพื่อให้ตัว Card ดูไม่หนาเทอะทะเกินไป
+                    contentPadding:
+                        const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
                     leading: _buildLogo(item, themeColor),
                     title: Text(
                       item.name,
@@ -121,7 +123,6 @@ class SubHomeUI extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    // ✨ ปุ่มโทรแบบใหม่ (สวยสมบูรณ์แบบ)
                     trailing: Container(
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
